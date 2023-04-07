@@ -2,6 +2,7 @@
   "name": "team-3-inStock-api",
   "version": "1.0.0",
   "description": "BrainStation's inStock Project",
+  "type": "module",
   "main": "index.js",
   "repository": "git@github.com:hraza01/team-3-inStock-api.git",
   "author": "Hasan Raza, Austin Trott, Kaveri Mittal, Elizabeth Atkinson",
