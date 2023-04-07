@@ -1,15 +1,38 @@
 {
-  "name": "team-3-inStock-api",
+  "name": "team-3-instock-api",
   "version": "1.0.0",
   "description": "BrainStation's inStock Project",
-  "main": "index.js",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "db:migrate": "knex migrate:latest --knexfile ./src/db/config/knexfile.cjs",
+    "db:seed": "knex seed:run --knexfile ./src/db/config/knexfile.cjs",
+    "dev": "NODE_ENV=development nodemon -r dotenv/config --experimental-modules --ext cjs,js,json src/index.js dotenv_config_path=.env",
+    "start": "NODE_ENV=production node --experimental-modules src/index.js"
+  },
   "repository": "git@github.com:hraza01/team-3-inStock-api.git",
   "author": "Hasan Raza, Austin Trott, Kaveri Mittal, Elizabeth Atkinson",
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "knex": "^2.4.2",
-    "mysql2": "^3.2.0"
+    "mysql2": "^3.2.0",
+    "objection": "^3.0.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.7"
+  },
+  "imports": {
+    "#app/*": "./src/*",
+    "#controllers/*": "./src/controllers/*",
+    "#models/*": "./src/models/*",
+    "#services/*": "./src/services/*",
+    "#routes": "./src/routes/index.js",
+    "#utils/*": "./src/utils/*",
+    "#database": "./src/db/connection.js"
   }
 }
