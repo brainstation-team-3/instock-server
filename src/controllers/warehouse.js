@@ -9,6 +9,15 @@ class WarehouseController {
             res.status(500).json({message: error.message})
         }
     }
+
+    async listById(req, res) {
+        try {
+          const data = await WarehouseService.listById(req.params.id)
+          res.status(200).json(data)
+        } catch (error) {
+            res.status(500).json({message: error.message})
+        }
+    }
 }
 
 export default new WarehouseController();
