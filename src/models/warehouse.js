@@ -40,7 +40,6 @@ class Warehouse {
             .into('warehouse')
     }
 
-
     async deleteById(id) {
         const warehouse = await database
             .from('warehouse')
@@ -55,6 +54,12 @@ class Warehouse {
         return id
     }
 
+    async updateById(id, data) {
+        return database
+            .from('warehouse')
+            .where('id', id)
+            .update({...data, updated_at: new Date() })
+    }
 }
 
 export default new Warehouse()

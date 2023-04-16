@@ -16,6 +16,10 @@ class warehouseService {
     deleteById(id) {
         return Warehouse.deleteById(id)
     }
+
+    updateById(id, data) {
+        return Warehouse.updateById(id, data)
+    }
 }
 
 export default new warehouseService()

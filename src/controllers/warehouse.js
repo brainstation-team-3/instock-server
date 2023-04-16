@@ -28,7 +28,6 @@ class WarehouseController {
         }
     }
 
-
     async deleteById(req, res) {
         try {
             const data = await WarehouseService.deleteById(req.params.id)
@@ -38,6 +37,14 @@ class WarehouseController {
         }
     }
 
+    async updateById(req, res) {
+        try {
+            await WarehouseService.updateById(req.params.id, req.body.data)
+            res.sendStatus(200)
+          } catch (error) {
+              res.status(500).json({message: error.message})
+          }
+    }
 }
 
 export default new WarehouseController()
