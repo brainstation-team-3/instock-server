@@ -8,6 +8,10 @@ class warehouseService {
     listById(id) {
         return Warehouse.listById(id)
     }
+
+    deleteById(id) {
+        return Warehouse.deleteById(id)
+    }
 }
 
 export default new warehouseService();
