@@ -4,9 +4,15 @@ class Warehouse {
     listAll() {
         return database
             .from('warehouse')
-            .select('id', 'warehouse_name', 'address',
-                'city', 'country', 'contact_name',
-                'contact_phone', 'contact_email',
+            .select(
+                'id',
+                'warehouse_name',
+                'address',
+                'city',
+                'country',
+                'contact_name',
+                'contact_phone',
+                'contact_email',
             )
     }
 
@@ -16,10 +22,22 @@ class Warehouse {
             .first()
             .from('warehouse')
             .where('id', id)
-            .select('id', 'warehouse_name', 'address',
-                'city', 'country', 'contact_name',
-                'contact_phone', 'contact_email',
+            .select(
+                'id',
+                'warehouse_name',
+                'address',
+                'city',
+                'country',
+                'contact_name',
+                'contact_phone',
+                'contact_email',
             )
+    }
+
+    addWarehouse(warehouse) {
+        return database
+            .insert(warehouse)
+            .into('warehouse')
     }
 
 
