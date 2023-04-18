@@ -9,10 +9,6 @@ class warehouseService {
         return Warehouse.listById(id)
     }
 
-    addWarehouse() {
-        return Warehouse.addWarehouse()
-    }
-
     deleteById(id) {
         return Warehouse.deleteById(id)
     }
