@@ -18,4 +18,4 @@ class warehouseService {
     }
 }
 
-export default new warehouseService();
+export default new warehouseService()
