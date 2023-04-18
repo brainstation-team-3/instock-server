@@ -21,8 +21,8 @@ class WarehouseController {
 
     async addWarehouse(req, res) {
         try {
-            const data = await WarehouseService.addWarehouse(req.body)
-            res.status(200).json(data)
+            await WarehouseService.addWarehouse(req.body.newWarehouse)
+            res.sendStatus(201)
         } catch (error) {
             res.status(500).json({message: error.message})
         }
