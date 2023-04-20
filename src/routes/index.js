@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import warehouseRouter from '#app/routes/warehouse.js'
-import inventoryRouter from '#app/routes/inventories.js'
+import inventoryRouter from '#app/routes/inventory.js'
 
 const routes = Router()
 
@@ -9,7 +9,7 @@ const routes = Router()
 
 // All possible routes
 routes.use('/api/warehouse', warehouseRouter)
-routes.use('/api/inventories', inventoryRouter)
+routes.use('/api/inventory', inventoryRouter)
 
 
 export default routes
