@@ -5,9 +5,7 @@ const inventoryRouter = Router()
 
 inventoryRouter
     .get('/', InventoryController.listAll)
-    // .post('/', InventoryController.addinventory)
-    .get('/:id', InventoryController.listById)
-    // .delete('/:id', InventoryController.deleteById)
+    .delete('/:id', InventoryController.deleteById)
 
 
 export default inventoryRouter

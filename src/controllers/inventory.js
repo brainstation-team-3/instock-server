@@ -10,9 +10,9 @@ class InventoryController {
         }
     }
 
-    async listById(req, res) {
+    async deleteById(req, res) {
         try {
-            const data = await InventoryService.listById(req.params.id)
+            const data = await InventoryService.deleteById(req.params.id)
             res.status(200).json(data)
         } catch (error) {
             res.status(500).json({message: error.message})

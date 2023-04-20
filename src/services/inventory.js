@@ -5,14 +5,9 @@ class inventoryService {
         return Inventory.listAll()
     }
 
-    listById(id) {
-        return Inventory.listById(id)
+    deleteById(id) {
+        return Inventory.deleteById(id)
     }
-
-
-    // deleteById(id) {
-    //     return Inventory.deleteById(id)
-    // }
 }
 
 export default new inventoryService();
