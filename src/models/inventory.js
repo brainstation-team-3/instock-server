@@ -26,7 +26,10 @@ class Inventory {
     }
 
     deleteById(id) {
-        return database.from('inventory').where('id', id).del()
+        return database
+        .from('inventory')
+        .where('id', id)
+        .del()
     }
 }
 
