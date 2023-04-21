@@ -20,6 +20,10 @@ class warehouseService {
     updateById(id, data) {
         return Warehouse.updateById(id, data)
     }
+
+    getInventory(id) {
+        return Warehouse.getInventory(id)
+    }
 }
 
 export default new warehouseService()
