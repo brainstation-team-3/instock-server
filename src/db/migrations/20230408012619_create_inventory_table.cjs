@@ -1,7 +1,6 @@
-
 exports.up = function(knex) {
     return knex.schema.createTable('inventory', (table) => {
-        table.uuid('id').primary()
+        table.uuid('id').primary().defaultTo(knex.raw('(UUID())'))
         table
             .uuid('warehouse_id')
             .references('warehouse.id')

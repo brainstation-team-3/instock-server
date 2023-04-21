@@ -12,7 +12,7 @@ class Warehouse {
                 'country',
                 'contact_name',
                 'contact_phone',
-                'contact_email'
+                'contact_email',
             )
     }
 
@@ -30,20 +30,15 @@ class Warehouse {
                 'country',
                 'contact_name',
                 'contact_phone',
-                'contact_email'
+                'contact_email',
             )
     }
 
-    addWarehouse() {
+    addWarehouse(warehouse) {
         return database
-            .insert(req.body)
-            .returning('*')
+            .insert(warehouse)
             .into('warehouse')
-            .then(function(data) {
-                res.send(data)
-            })
     }
-
 
     async deleteById(id) {
         const warehouse = await database
@@ -59,6 +54,25 @@ class Warehouse {
         return id
     }
 
+    async updateById(id, data) {
+        return database
+            .from('warehouse')
+            .where('id', id)
+            .update({...data, updated_at: new Date() })
+    }
+
+    async getInventory(id) {
+        return database
+            .from('inventory')
+            .where('warehouse_id', id)
+            .select(
+                'id',
+                'item_name',
+                'category',
+                'status',
+                'quantity'
+            )
+    }
 }
 
 export default new Warehouse()

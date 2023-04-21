@@ -1,5 +1,5 @@
 require('dotenv').config({ path: '../../../.env' })
-const {knexSnakeCaseMappers} = require('objection')
+const { knexSnakeCaseMappers } = require('objection')
 
 module.exports = {
     client: 'mysql2',
@@ -17,5 +17,5 @@ module.exports = {
     seeds: {
         directory: '../seeds',
     },
-    ...knexSnakeCaseMappers
+    ...knexSnakeCaseMappers,
 }

@@ -9,13 +9,21 @@ class warehouseService {
         return Warehouse.listById(id)
     }
 
-    addWarehouse() {
-        return Warehouse.addWarehouse()
+    addWarehouse(warehouse) {
+        return Warehouse.addWarehouse(warehouse)
     }
 
     deleteById(id) {
         return Warehouse.deleteById(id)
     }
+
+    updateById(id, data) {
+        return Warehouse.updateById(id, data)
+    }
+
+    getInventory(id) {
+        return Warehouse.getInventory(id)
+    }
 }
 
-export default new warehouseService();
+export default new warehouseService()
