@@ -45,6 +45,15 @@ class WarehouseController {
               res.status(500).json({message: error.message})
           }
     }
+
+    async getInventory(req, res) {
+        try {
+            const data = await WarehouseService.getInventory(req.params.id)
+            res.status(200).json(data)
+        } catch (error) {
+            res.status(500).json({ message: error.message })
+        }
+    }
 }
 
 export default new WarehouseController()

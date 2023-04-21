@@ -9,6 +9,7 @@ warehouseRouter
     .get('/:id', WarehouseController.listById)
     .delete('/:id', WarehouseController.deleteById)
     .put('/:id', WarehouseController.updateById)
+    .get('/:id/inventory', WarehouseController.getInventory)
 
 
 export default warehouseRouter

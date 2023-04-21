@@ -60,6 +60,19 @@ class Warehouse {
             .where('id', id)
             .update({...data, updated_at: new Date() })
     }
+
+    async getInventory(id) {
+        return database
+            .from('inventory')
+            .where('warehouse_id', id)
+            .select(
+                'id',
+                'item_name',
+                'category',
+                'status',
+                'quantity'
+            )
+    }
 }
 
 export default new Warehouse()
