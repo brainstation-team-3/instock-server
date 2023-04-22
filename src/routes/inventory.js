@@ -7,5 +7,6 @@ inventoryRouter
     .get('/', InventoryController.listAll)
     .get('/:id', InventoryController.listById)
     .delete('/:id', InventoryController.deleteById)
+    .post('/', InventoryController.addInventoryItem)
 
 export default inventoryRouter
