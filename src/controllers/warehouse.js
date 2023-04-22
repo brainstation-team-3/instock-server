@@ -37,7 +37,6 @@ class WarehouseController {
         }
     }
 
-
     async deleteById(req, res) {
         try {
             const data = await WarehouseService.deleteById(req.params.id)
