@@ -7,6 +7,7 @@ const routes = Router()
 // Routing middleware
 
 
+
 // All possible routes
 routes.use('/api/warehouse', warehouseRouter)
 routes.use('/api/inventory', inventoryRouter)

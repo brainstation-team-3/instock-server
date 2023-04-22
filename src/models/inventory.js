@@ -34,6 +34,12 @@ class Inventory {
         .where('id', id)
         .del()
     }
+
+    addInventoryItem(item) {
+        return database
+        .insert(item)
+        .into('inventory')
+    }
 }
 
 export default new Inventory()

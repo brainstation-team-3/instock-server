@@ -12,6 +12,10 @@ class inventoryService {
     deleteById(id) {
         return Inventory.deleteById(id)
     }
+
+    addInventoryItem(item) {
+        return Inventory.addInventoryItem(item)
+    }
 }
 
 export default new inventoryService()
