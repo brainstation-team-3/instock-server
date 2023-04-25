@@ -5,10 +5,7 @@ class Inventory {
         return database
             .from('inventory')
             .join('warehouse', 'inventory.warehouse_id', '=', 'warehouse.id')
-            .select('inventory.id', 
-            'item_name', 'category',
-            'status', 'quantity', 
-            'warehouse.warehouse_name')
+            .select('inventory.id', 'item_name', 'category', 'status', 'quantity', 'warehouse.warehouse_name')
     }
 
     listById(id) {
@@ -29,16 +26,19 @@ class Inventory {
     }
 
     deleteById(id) {
-        return database
-        .from('inventory')
-        .where('id', id)
-        .del()
+        return database.from('inventory').where('id', id).del()
     }
 
     addInventoryItem(item) {
-        return database
-        .insert(item)
-        .into('inventory')
+        return database.insert(item).into('inventory')
+    }
+
+    async updateById(id, data) {
+        const inventory = await database
+            .from('inventory')
+            .where('inventory.id', id)
+            // .join('warehouse', 'inventory.warehouse_id', '=', 'warehouse.id')
+            .update({ ...data, 'inventory.updated_at': new Date() })
     }
 }
 

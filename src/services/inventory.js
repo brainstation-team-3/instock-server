@@ -16,6 +16,10 @@ class inventoryService {
     addInventoryItem(item) {
         return Inventory.addInventoryItem(item)
     }
+
+    updateById(id, data) {
+        return Inventory.updateById(id, data)
+    }
 }
 
 export default new inventoryService()
