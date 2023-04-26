@@ -17,7 +17,7 @@ exports.seed = async function(knex) {
             warehouse_id: '2922c286-16cd-4d43-ab98-c79f698aeab0',
             item_name: 'Gym Bag',
             description:
-                ' out of military-grade synthetic materials, this gym bag is highlMadey durable, water resistant, and easy to clean.',
+                'Made out of military-grade synthetic materials, this gym bag is highly durable, water resistant, and easy to clean.',
             category: 'Gear',
             status: 'Out of Stock',
             quantity: 0,
