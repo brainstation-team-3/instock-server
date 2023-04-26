@@ -33,12 +33,12 @@ class Inventory {
         return database.insert(item).into('inventory')
     }
 
-    async updateById(id, data) {
-        const inventory = await database
+    updateById(id, data) {
+        const { warehouse_id, ...updateData } = data
+        return database
             .from('inventory')
             .where('inventory.id', id)
-            // .join('warehouse', 'inventory.warehouse_id', '=', 'warehouse.id')
-            .update({ ...data, 'inventory.updated_at': new Date() })
+            .update({ ...updateData, 'inventory.updated_at': new Date() })
     }
 }
 

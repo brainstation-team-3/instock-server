@@ -39,11 +39,11 @@ class InventoryController {
 
     async updateById(req, res) {
         try {
-           const data = await InventoryService.updateById(req.params.id, req.body)
             if (!req.body.item_name && !req.body.quantity) {
-                res.sendStatus(400).json({message: 'all are required'})
+                res.status(400).json({message: 'all are required'})
             } else {
-                res.sendStatus(200).json(data)
+                await InventoryService.updateById(req.params.id, req.body)
+                res.sendStatus(200)
             }
         } catch (error) {
             res.status(500).json({message: error.message})
