@@ -5,10 +5,7 @@ class Inventory {
         return database
             .from('inventory')
             .join('warehouse', 'inventory.warehouse_id', '=', 'warehouse.id')
-            .select('inventory.id', 
-            'item_name', 'category',
-            'status', 'quantity', 
-            'warehouse.warehouse_name')
+            .select('inventory.id', 'item_name', 'category', 'status', 'quantity', 'warehouse.warehouse_name')
     }
 
     listById(id) {
@@ -29,16 +26,19 @@ class Inventory {
     }
 
     deleteById(id) {
-        return database
-        .from('inventory')
-        .where('id', id)
-        .del()
+        return database.from('inventory').where('id', id).del()
     }
 
     addInventoryItem(item) {
+        return database.insert(item).into('inventory')
+    }
+
+    updateById(id, data) {
+        const { warehouse_id, ...updateData } = data
         return database
-        .insert(item)
-        .into('inventory')
+            .from('inventory')
+            .where('inventory.id', id)
+            .update({ ...updateData, 'inventory.updated_at': new Date() })
     }
 }
 

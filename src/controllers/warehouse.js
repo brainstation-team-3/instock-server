@@ -41,9 +41,9 @@ class WarehouseController {
         try {
             await WarehouseService.updateById(req.params.id, req.body.data)
             res.sendStatus(200)
-          } catch (error) {
-              res.status(500).json({message: error.message})
-          }
+        } catch (error) {
+            res.status(500).json({ message: error.message })
+        }
     }
 
     async getInventory(req, res) {
