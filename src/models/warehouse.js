@@ -1,4 +1,5 @@
 import database from '#database'
+import {v4 as uuid} from 'uuid'
 
 class Warehouse {
     listAll() {
@@ -33,12 +34,12 @@ class Warehouse {
                 'contact_email',
             )
     }
-
-    addWarehouse(warehouse) {
-        return database
-            .insert(warehouse)
-            .into('warehouse')
-    }
+     addWarehouse(warehouse) {
+        warehouse.id = uuid()
+        return database 
+         .insert(warehouse)
+         .into('warehouse')
+        }
 
     async deleteById(id) {
         const warehouse = await database
@@ -58,7 +59,7 @@ class Warehouse {
         return database
             .from('warehouse')
             .where('id', id)
-            .update({...data, updated_at: new Date() })
+            .update({...data, "updated_at": new Date() })
     }
 
     async getInventory(id) {

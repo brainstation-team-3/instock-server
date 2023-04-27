@@ -21,7 +21,7 @@ class WarehouseController {
 
     async addWarehouse(req, res) {
         try {
-            await WarehouseService.addWarehouse(req.body.newWarehouse)
+            await WarehouseService.addWarehouse(req.body)
             res.sendStatus(201)
         } catch (error) {
             res.status(500).json({ message: error.message })
@@ -39,7 +39,7 @@ class WarehouseController {
 
     async updateById(req, res) {
         try {
-            await WarehouseService.updateById(req.params.id, req.body.data)
+            await WarehouseService.updateById(req.params.id, req.body)
             res.sendStatus(200)
         } catch (error) {
             res.status(500).json({ message: error.message })
