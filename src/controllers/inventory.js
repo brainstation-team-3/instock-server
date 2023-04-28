@@ -30,8 +30,8 @@ class InventoryController {
 
     async addInventoryItem(req, res) {
         try {
-            const data = await InventoryService.addNewInventory(req.body)
-            res.status(200).json(data)
+            await InventoryService.addInventoryItem(req.body)
+            res.sendStatus(201)
         } catch (error) {
             res.status(500).json({ message: error.message })
         }

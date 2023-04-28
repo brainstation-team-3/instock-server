@@ -34,11 +34,10 @@ class Inventory {
     }
 
     updateById(id, data) {
-        const { warehouse_id, ...updateData } = data
         return database
             .from('inventory')
-            .where('inventory.id', id)
-            .update({ ...updateData, 'inventory.updated_at': new Date() })
+            .where('id', id)
+            .update({ ...data, updated_at: new Date() })
     }
 }
 
